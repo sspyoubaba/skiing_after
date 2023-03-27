@@ -51,16 +51,104 @@ export const constantRoutes = [
       path: 'dashboard',
       name: 'Dashboard',
       component: () => import('@/views/dashboard/index'),
-      meta: { title: 'Dashboard', icon: 'dashboard' }
+      meta: { title: '信息展示', icon: 'dashboard' }
     }]
   },
 
   {
-    path: '/example',
+    path: '/shopping',
     component: Layout,
-    redirect: '/example/table',
-    name: 'Example',
-    meta: { title: 'Example', icon: 'el-icon-s-help' },
+    redirect: '/shopping/goodsManage',
+    name: 'Shopping',
+    meta: { title: '商城管理', icon: 'el-icon-s-help' },
+    children: [
+      {
+        path: 'goodsManage',
+        name: 'GoodsManage',
+        component: () => import('@/views/goodsManage/index'),
+        meta: { title: '商品管理', icon: 'table' },
+        children: [
+          {
+            path: 'goodsInfoManage',
+            name: 'goodsInfoManage',
+            component: () => import('@/views/goodsInfoManage/index'),
+            meta: { title: '商品信息', icon: 'table' }
+          },
+          {
+            path: 'goodsJudgeManage',
+            name: 'GoodsJudgeManage',
+            component: () => import('@/views/goodsJudgeManage/index'),
+            meta: { title: '商品评价管理', icon: 'table' }
+          }
+        ]
+      },
+      {
+        path: 'stockManage',
+        name: 'StockManage',
+        component: () => import('@/views/stockManage/index'),
+        meta: { title: '库存管理', icon: 'table' }
+      },
+      {
+        path: 'ordersManage',
+        name: 'OrdersManage',
+        component: () => import('@/views/ordersManage/index'),
+        meta: { title: '订单管理', icon: 'table' }
+      }
+    ]
+  },
+
+  {
+    path: '/address',
+    component: Layout,
+    redirect: '/address/table',
+    name: 'Address',
+    meta: { title: '场地管理', icon: 'el-icon-s-help' },
+    children: [
+      {
+        path: 'addressInfoManage',
+        name: 'AddressInfoManage',
+        component: () => import('@/views/addressInfoManage/index'),
+        meta: { title: '场地信息管理', icon: 'table' }
+      },
+      {
+        path: 'addressDiscountManage',
+        name: 'AddressDiscountManage',
+        component: () => import('@/views/addressDiscountManage/index'),
+        meta: { title: '优惠套餐管理', icon: 'table' }
+      },
+      {
+        path: 'addressEquipManage',
+        name: 'AddressEquipManage',
+        component: () => import('@/views/addressEquipManage/index'),
+        meta: { title: '装备租赁', icon: 'table' }
+      },
+      {
+        path: 'addressTrainManage',
+        name: 'AddressTrainManage',
+        component: () => import('@/views/addressTrainManage/index'),
+        meta: { title: '教练信息', icon: 'table' }
+      },
+      {
+        path: 'addressOrderManage',
+        name: 'AddressOrderManage',
+        component: () => import('@/views/addressOrderManage/index'),
+        meta: { title: '滑雪订单', icon: 'table' }
+      },
+      {
+        path: 'addressJudgeManage',
+        name: 'AddressJudgeManage',
+        component: () => import('@/views/addressJudgeManage/index'),
+        meta: { title: '滑雪评价', icon: 'table' }
+      }
+    ]
+  },
+
+  {
+    path: '/study',
+    component: Layout,
+    redirect: '/study/table',
+    name: 'Address',
+    meta: { title: '在线学习管理', icon: 'el-icon-s-help' },
     children: [
       {
         path: 'table',
@@ -73,6 +161,28 @@ export const constantRoutes = [
         name: 'Tree',
         component: () => import('@/views/tree/index'),
         meta: { title: 'Tree', icon: 'tree' }
+      }
+    ]
+  },
+
+  {
+    path: '/user',
+    component: Layout,
+    redirect: '/user/table',
+    name: 'Address',
+    meta: { title: '用户管理', icon: 'el-icon-s-help' },
+    children: [
+      {
+        path: 'userPowerManage',
+        name: 'UserPowerManage',
+        component: () => import('@/views/userPowerManage/index'),
+        meta: { title: '权限管理', icon: 'table' }
+      },
+      {
+        path: 'userInfoManage',
+        name: 'UserInfoManage',
+        component: () => import('@/views/userInfoManage/index'),
+        meta: { title: '用户信息', icon: 'tree' }
       }
     ]
   },
